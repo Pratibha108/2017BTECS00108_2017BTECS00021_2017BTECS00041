@@ -39,21 +39,44 @@ public final class RequestContext {
     @ClientServer
     public static final String SESSION_ID = "sessionId";
     private String sessionId;
-    @ClientServer
-    public static final String ACCOUNT_NUMBER = "accountNumber";
-    private Long accountNumber;
+    
     @ClientServer
     public static final String IP_ADDRESS = "ipAddress";
     private String ipAddress;
     @ClientServer
     public static final String USER_ID = "userId";
     private String userId;
-    @ClientServer
-    public static final String LOGIN_ID = "loginId";
-    private String loginId;
+    
+	@ClientServer
+	public static final String PROGRAM_NAME= "programName";
+	private String programName;
+	@ClientServer
+	public static final String PROGRAM_ID= "programId";
+	private Integer programId;
+	@ClientServer
+	public static final String ACTION= "action";
+	private String action;
+	
+	@ClientServer
+	public static final String MU_ID= "muId";
+	private Integer muId;
+	
+	@ClientServer
+	public static final String CT_ID= "ctId";
+	private Integer ctId;
+	@ClientServer
+	public static final String ASSOCIATED_SKILL= "associatedSkill";
+	private String associatedSkill;
+	@ClientServer
+    public static final String SKILL_LEVEL = "skillLevel";
+    private Integer skillLevel;
     @Local
     public static final String CALLING_HOST = "callingHost";
     private String callingHost;
+	
+	
+	
+	
 
     public static final String HOST_NAME = "hostName";
     private String hostName;
@@ -100,21 +123,7 @@ public final class RequestContext {
         }
     }
 
-    public static void setAccountNumber(Long accountNumber) {
-        ThreadContext.put(ACCOUNT_NUMBER, accountNumber.toString());
-    }
-
-    public static Long getAccountNumber() {
-        String value = ThreadContext.get(ACCOUNT_NUMBER);
-        if (value == null || value.length() == 0) {
-            return 0L;
-        }
-        try {
-            return Long.parseLong(value);
-        } catch (Exception e) {
-            return 0L;
-        }
-    }
+    
 
     public static void setIpAddress(String address) {
         ThreadContext.put(IP_ADDRESS, address);
@@ -131,14 +140,87 @@ public final class RequestContext {
     public static String getUserId() {
         return ThreadContext.get(USER_ID);
     }
-
-    public static void setLoginId(String loginId) {
-        ThreadContext.put(LOGIN_ID, loginId);
+	public static void setProgramName(String programName) {
+        ThreadContext.put(PROGRAM_NAME, programName);
     }
-
-    public static String getLoginId() {
-        return ThreadContext.get(LOGIN_ID);
+	public static String getProgramName() {
+        return ThreadContext.get(PROGRAM_NAME);
     }
+	
+	public static void setAction(String action) {
+        ThreadContext.put(ACTION, action);
+    }
+	public static String getAction() {
+        return ThreadContext.get(ACTION);
+    }
+	
+	
+	public static void setMuId(Integer muId) {
+        ThreadContext.put(MU_ID, muId.toString());
+    }
+	public static Integer getMuId() {
+       String value = ThreadContext.get(MU_ID);
+        if (value == null || value.length() == 0) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+	
+	public static void setProgramId(Integer programId) {
+        ThreadContext.put(PROGRAM_ID, programId.toString());
+    }
+	public static Integer getProgramId() {
+       String value = ThreadContext.get(PROGRAM_ID);
+        if (value == null || value.length() == 0) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+	
+	
+	public static void setCtId(Integer ctId) {
+        ThreadContext.put(CT_ID, ctId.toString());
+    }
+	public static Integer getCtId() {
+       String value = ThreadContext.get(CT_ID);
+        if (value == null || value.length() == 0) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+	public static void setAssociatedSkill(String associatedSkill) {
+        ThreadContext.put(ASSOCIATED_SKILL, associatedSkill);
+    }
+	public static String getAssociatedSkill() {
+        return ThreadContext.get(ASSOCIATED_SKILL);
+    }
+	public static void setSkillLevel(Integer skillLevel) {
+        ThreadContext.put(SKILL_LEVEL, skillLevel.toString());
+    }
+	public static Integer getSkillLevel() {
+       String value = ThreadContext.get(SKILL_LEVEL);
+        if (value == null || value.length() == 0) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+    
 
     public static String getHostName() {
         return ThreadContext.get(HOST_NAME);
@@ -156,20 +238,27 @@ public final class RequestContext {
         ThreadContext.put(CALLING_HOST, hostName);
     }
 
+   
+
     /**
      * Save the RequestContext data.
      * @return A copy of the RequestContext data.
      */
     public static RequestContext save() {
         RequestContext context = new RequestContext();
-        context.accountNumber = getAccountNumber();
         context.callingHost = getCallingHost();
         context.hostName = getHostName();
         context.ipAddress = getIpAddress();
-        context.loginId = getLoginId();
         context.requestId = getRequestId();
         context.sessionId = getSessionId();
         context.userId = getUserId();
+		context.programName= getProgramName();
+		context.action= getAction();
+		context.muId=getMuId();
+		context.ctId=getCtId();
+		context.getAssociatedSkill();
+		context.getSkillLevel();
+		context.getProgramId();
         return context;
     }
 
@@ -177,13 +266,19 @@ public final class RequestContext {
      * Populate the ThreadContext from a RequestContext object.
      */
     public void restore() {
-        setAccountNumber(this.accountNumber);
+       
         setCallingHost(this.callingHost);
         setHostName(this.hostName);
         setIpAddress(this.ipAddress);
-        setLoginId(this.loginId);
         ThreadContext.put(REQUEST_ID, this.requestId);
         setSessionId(this.sessionId);
         setUserId(this.userId);
+		setProgramName(this.programName);
+		setAction(this.action);
+		setMuId(this.muId);
+		setCtId(this.ctId);
+		setAssociatedSkill(this.associatedSkill);
+		setSkillLevel(this.skillLevel);
+		setProgramId(this.programId);
     }
 }

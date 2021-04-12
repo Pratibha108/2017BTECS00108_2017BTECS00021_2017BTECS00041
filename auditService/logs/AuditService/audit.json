@@ -1,0 +1,185 @@
+[
+{
+  "timeMillis" : 1618145424605,
+  "thread" : "http-nio-8088-exec-1",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"add\" programId=\"\" programName=\"helllo\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "tenantName" : "citi",
+    "userId" : "2"
+  },
+  "threadId" : 19,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1618145721822,
+  "thread" : "http-nio-8088-exec-1",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"update\" programId=\"205\" programName=\"opssssss\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "tenantName" : "citi",
+    "userId" : "108"
+  },
+  "threadId" : 19,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1618199988968,
+  "thread" : "http-nio-8088-exec-1",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"add\" programId=\"\" programName=\"demofirst\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "tenantName" : "citi",
+    "userId" : "2"
+  },
+  "threadId" : 19,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1618217012847,
+  "thread" : "http-nio-8088-exec-1",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"update\" programId=\"181\" programName=\"proo\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "tenantName" : "citi",
+    "userId" : "108"
+  },
+  "threadId" : 19,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1618218945012,
+  "thread" : "http-nio-8088-exec-3",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"add\" programId=\"\" programName=\"Nice demo\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "newValue" : "Nice demo",
+    "oldValue" : "null",
+    "tenantName" : "citi",
+    "userId" : "2"
+  },
+  "threadId" : 21,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1618218983607,
+  "thread" : "http-nio-8088-exec-5",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"update\" programId=\"207\" programName=\"New Nice demo\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "newValue" : "New Nice demo",
+    "oldValue" : "null",
+    "tenantName" : "citi",
+    "userId" : "108"
+  },
+  "threadId" : 23,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1618219232039,
+  "thread" : "http-nio-8088-exec-7",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [muAssociation action=\"add\" muId=\"441\" programId=\"207\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "newValue" : "null",
+    "oldValue" : "null",
+    "tenantName" : "citi",
+    "userId" : "2"
+  },
+  "threadId" : 25,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1618222420240,
+  "thread" : "http-nio-8088-exec-9",
+  "level" : "OFF",
+  "loggerName" : "AuditLogger",
+  "marker" : {
+    "name" : "Audit",
+    "parents" : [ {
+      "name" : "EVENT"
+    } ]
+  },
+  "message" : "Audit [program action=\"update\" programId=\"59\" programName=\"Airtel Xtreme\"]",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.audit.AuditLogger",
+  "contextMap" : {
+    "ipAddress" : "192.168.43.43",
+    "newValue" : "Airtel Xtreme",
+    "oldValue" : "null",
+    "tenantName" : "citi",
+    "userId" : "2"
+  },
+  "threadId" : 27,
+  "threadPriority" : 5
+}

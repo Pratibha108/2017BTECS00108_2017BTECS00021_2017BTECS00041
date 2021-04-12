@@ -1,77 +1,79 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements. See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache license, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the license for the specific language governing permissions and
- * limitations under the license.
- */
 {
   "products" : [ {
     "name" : "banking",
     "displayName" : "Banking",
     "description" : "Fictional banking product",
-    "events" : [ "login", "transfer", "deposit", "billPay" ]
+    "events" : ["program","muAssociation","ctAssociation","skillsAssociation" ]
   } ],
-  "categories" : [ {
-    "name" : "account",
-    "displayName" : "Account",
-    "description" : "Events related to accounts",
-    "events" : [ "transfer", "deposit" ]
-  }, {
-    "name" : "billPay",
-    "displayName" : "Bill Pay",
-    "description" : "Events related to bill payment",
-    "events" : [ "billPay" ]
-  } ],
+  "categories": [{
+  "name": "Program Manager",
+  "displayName": "Program Manager",
+  "description": "Events related to program manager",
+  "events": ["program","muAssociation","ctAssociation","skillsAssociation" ]
+  }],
   "events" : [ {
-    "name" : "login",
-    "displayName" : "Login",
-    "description" : "User Login",
-    "aliases" : null,
-    "attributes" : [{"name" : "userId", "required" : false}, {"name" : "accountNumber", "required" : false}]
-  }, {
-    "name" : "transfer",
-    "displayName" : "Transfer",
-    "description" : "Transfer between accounts",
-    "aliases" : null,
-    "attributes" : [ {"name" : "toAccount", "required" : true}, {"name" : "fromAccount", "required" : true},
-      {"name" :"amount", "required" : true} ]
-  }, {
-    "name" : "deposit",
-    "displayName" : "Deposit",
-    "description" : "Deposit funds",
-    "aliases" : null,
-    "attributes" : [ {"name" : "account", "required" : true}, {"name" : "amount", "required" : true} ]
-  }, {
-    "name" : "billPay",
-    "displayName" : "Bill Pay",
-    "description" : "Payment of a bill",
-    "aliases" : null,
-    "attributes" : [ {"name" : "fromAccount", "required" : true}, {"name" : "payee", "required" : true},
-        {"name" : "amount", "required" : true} ]
+  "name": "program",
+  "displayName": "Program",
+  "description" : "Program Name of Nice EEM",
+  "aliases" : null,
+  "attributes": [{"name": "programName", "required" : true}, {"name": "action", "required": true},{"name": "programId","required": true}]
+  },{
+  "name": "muAssociation",
+  "displayName":"Management unit association",
+  "description" : "Management unit association",
+  "aliases" : null,
+  "attributes": [{"name": "programId", "required" : true}, {"name": "action", "required": true},{"name": "muId", "required": true}]
+  },{
+  "name": "ctAssociation",
+  "displayName":"Contact type association",
+  "description" : "Contact type association",
+  "aliases" : null,
+  "attributes": [{"name": "programId", "required" : true}, {"name": "action", "required": true},{"name": "ctId", "required": true}]
+  },{
+  "name": "skillsAssociation",
+  "displayName":"Skills association",
+  "description" : "Skills association",
+  "aliases" : null,
+  "attributes": [{"name": "programName", "required" : true}, {"name": "action", "required": true},{"name": "associatedSkill" , "required": true},{"name": "skillLevel", "required":true}]
   } ],
   "attributes" : [ {
-    "name" : "accountNumber",
-    "displayName" : "Account Number",
-    "description" : "Company account number",
-    "dataType" : "INT",
-    "indexed" : true,
-    "sortable" : true,
-    "required" : true,
-    "requestContext" : true,
-    "examples" : null,
-    "aliases" : null,
-    "constraints" : null
-  }, {
+	"name": "programId" ,
+	"displayName": "Program Id",
+	"description": " Nice Program Id",
+	"dataType": "INT",
+	"indexed": true,
+	"sortable": true,
+	"required": true,
+	"requestContext": false,
+	"examples": null,
+	"aliases": null,
+	"constraints" : null
+   },{
+"name": "programName" ,
+"displayName": "Program Name",
+"description": " Nice Program Name",
+"dataType": "STRING",
+"indexed": true,
+"sortable": true,
+"required": true,
+"requestContext": false,
+"examples": null,
+"aliases": null,
+ "constraints" : null
+}, {
+"name": "action" ,
+"displayName": "Action Name",
+"description": "Action by admin",
+"dataType": "STRING",
+"indexed": true,
+"sortable": true,
+"required": true,
+"requestContext": false,
+"examples": null,
+"aliases": null,
+ "constraints" : null
+} ,
+ {
     "name" : "ipAddress",
     "displayName" : "IP Address",
     "description" : "IP Address of the caller",
@@ -89,9 +91,45 @@
       "value" : "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
     } ]
   }, {
-    "name" : "userId",
-    "displayName" : "UserId",
-    "description" : "Id of the User",
+"name": "muId" ,
+"displayName": "Management Unit Id",
+"description": "Management Unit Id",
+"dataType": "INT",
+"indexed": true,
+"sortable": true,
+"required": true,
+"requestContext": false,
+"examples": null,
+"aliases": null,
+ "constraints" : null
+},{
+"name": "ctId" ,
+"displayName": "Contact type Id",
+"description": "Contact type Id",
+"dataType": "INT",
+"indexed": true,
+"sortable": true,
+"required": true,
+"requestContext": false,
+"examples": null,
+"aliases": null,
+ "constraints" : null
+},{
+"name": "associatedSkill" ,
+"displayName": "Associated Skill",
+"description": "Associated Skill",
+"dataType": "STRING",
+"indexed": true,
+"sortable": true,
+"required": true,
+"requestContext": false,
+"examples": null,
+"aliases": null,
+ "constraints" : null
+}, {
+    "name" : "skillLevel",
+    "displayName" : "Skill Level",
+    "description" : "Skill Level",
     "dataType" : "INT",
     "indexed" : true,
     "sortable" : true,
@@ -100,10 +138,10 @@
     "examples" : null,
     "aliases" : null,
     "constraints" : null
-  }, {
-    "name" : "loginId",
-    "displayName" : "LoginId",
-    "description" : "Id user logs in with",
+  } ,{
+    "name" : "userId",
+    "displayName" : "UserId",
+    "description" : "Id of the User",
     "dataType" : "INT",
     "indexed" : true,
     "sortable" : true,
@@ -124,70 +162,5 @@
     "examples" : null,
     "aliases" : null,
     "constraints" : null
-  }, {
-    "name" : "toAccount",
-    "displayName" : "To Account Number",
-    "description" : "Destination account",
-    "dataType" : "INT",
-    "indexed" : false,
-    "sortable" : false,
-    "required" : true,
-    "requestContext" : false,
-    "examples" : null,
-    "aliases" : null,
-    "constraints" : [ {
-      "constraintType" : {
-        "name" : "minValue"
-      },
-      "value" : "1"
-    } ]
-  }, {
-    "name" : "fromAccount",
-    "displayName" : "From Account Number",
-    "description" : "Source of funds",
-    "dataType" : "INT",
-    "indexed" : false,
-    "sortable" : false,
-    "required" : true,
-    "requestContext" : false,
-    "examples" : null,
-    "aliases" : null,
-    "constraints" : null
-  }, {
-    "name" : "amount",
-    "displayName" : "Amount",
-    "description" : "Amount to transfer",
-    "dataType" : "BIG_DECIMAL",
-    "indexed" : false,
-    "sortable" : false,
-    "required" : true,
-    "requestContext" : false,
-    "examples" : null,
-    "aliases" : null,
-    "constraints" : null
-  }, {
-    "name" : "account",
-    "displayName" : "Account Number",
-    "description" : "Accopunt number",
-    "dataType" : "INT",
-    "indexed" : false,
-    "sortable" : false,
-    "required" : true,
-    "requestContext" : false,
-    "examples" : null,
-    "aliases" : null,
-    "constraints" : null
-  }, {
-    "name" : "payee",
-    "displayName" : "Payee",
-    "description" : "Recipient of payment",
-    "dataType" : "STRING",
-    "indexed" : false,
-    "sortable" : false,
-    "required" : true,
-    "requestContext" : false,
-    "examples" : null,
-    "aliases" : null,
-    "constraints" : null
-  } ]
+  }   ]
 }

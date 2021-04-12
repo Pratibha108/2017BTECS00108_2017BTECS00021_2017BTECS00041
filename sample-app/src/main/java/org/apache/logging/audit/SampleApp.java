@@ -14,14 +14,14 @@
  * See the license for the specific language governing permissions and
  * limitations under the license.
  */
+ 
 package org.apache.logging.audit;
 
 import java.math.BigDecimal;
 import java.net.InetAddress;
 
 import org.apache.logging.log4j.audit.LogEventFactory;
-import org.apache.logging.log4j.audit.event.Deposit;
-import org.apache.logging.log4j.audit.event.Login;
+import org.apache.logging.log4j.audit.event.Program;
 import org.apache.logging.log4j.core.util.NetUtils;
 
 public class SampleApp {
@@ -31,29 +31,31 @@ public class SampleApp {
         RequestContext.setHostName(hostName);
         String inetAddress = InetAddress.getLocalHost().getHostAddress();
         RequestContext.setIpAddress(inetAddress);
-        RequestContext.setLoginId("testuser");
-        Login login = LogEventFactory.getEvent(Login.class);
-        login.logEvent();
-        String result = login("testuser");
-        login.setCompletionStatus(result);
-        login.logEvent();
-        Deposit deposit = LogEventFactory.getEvent(Deposit.class);
+        RequestContext.setUserId("testuser");
+        Program program = LogEventFactory.getEvent(Program.class);
+		program.setProgramId(108);
+		program.setProgramName("Nice Program");
+		program.setAction("Add");
+        program.logEvent();
+        String result = program("testuser");
+        program.setCompletionStatus(result);
+        program.logEvent();
+        /*Deposit deposit = LogEventFactory.getEvent(Deposit.class);
         deposit.setAccount(123456);
         deposit.setAmount(new BigDecimal(100.00));
         deposit.logEvent();
         result = deposit(deposit);
         deposit.setCompletionStatus(result);
-        deposit.logEvent();
+        deposit.logEvent();*/
         RequestContext.clear();
     }
 
-    private static String login(String user) {
-        RequestContext.setUserId("1111");
-        RequestContext.setAccountNumber(12345L);
+    private static String program(String user) {
+        RequestContext.setProgramName("Nice Program");
+        RequestContext.setAction("Add");
+		RequestContext.setProgramId(108);
         return "Success";
     }
 
-    private static String deposit(Deposit deposit) {
-        return "Success";
-    }
+   
 }

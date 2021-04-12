@@ -42,9 +42,8 @@
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="audit" fileName="${LOG_DIR}/audit.log" filePattern="${LOG_DIR}/archive/audit.log.%d{yyyyMMdd_HHmmss}-%i">
-      <RFC5424Layout enterpriseNumber="50177" includeMDC="true" mdcId="RequestContext" appName="Platform"
-                     mdcPrefix=""/>
+    <RollingFile name="audit" fileName="${LOG_DIR}/audit.json" filePattern="${LOG_DIR}/archive/audit.json.%d{yyyyMMdd_HHmmss}-%i">
+      <JSONLayout  complete="true" compact="false" properties="true"/>
       <Policies>
         <SizeBasedTriggeringPolicy size="30 MB"/>
       </Policies>
